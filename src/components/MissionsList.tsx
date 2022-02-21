@@ -27,7 +27,7 @@ export default function MissionsList({
       <TableHead>
         <TableRow>
           {headers.map((header) => (
-            <TableCell key="header" align="center">
+            <TableCell key={header} align="center">
               {header}
             </TableCell>
           ))}
