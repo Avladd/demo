@@ -2,16 +2,26 @@ import { Checkbox, TableCell, TableRow, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ReportIcon from "@mui/icons-material/Report";
 import { MissionFragment } from "../generated/generated";
+import { selectedMissionsContext } from "../context/selectedMissions";
+import { useContext } from "react";
 
 export default function MissionsListItem({
   mission,
 }: {
   mission: MissionFragment;
 }) {
+  const { setSelectedMission } = useContext(selectedMissionsContext);
+
+  const handleClick = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    checked: boolean
+  ) => {
+    setSelectedMission(e.target.name, checked);
+  };
   return (
     <TableRow>
       <TableCell align="center">
-        <Checkbox name={mission.id || ""} />
+        <Checkbox name={mission.id || ""} onChange={handleClick} />
       </TableCell>
       <TableCell>
         <Typography variant="body1" component="p">
