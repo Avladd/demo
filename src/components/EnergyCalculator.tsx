@@ -5,6 +5,7 @@ import { MissionFragment } from "../generated/generated";
 import calculateAverageEnergyPerPayload from "../utils/calculateAverageEnergyPerPayload";
 import calculateTotalEnergy from "../utils/calculateTotalEnergy";
 import humanizeEnergies from "../utils/humanizeEnergies";
+import EnergyCharts from "./EnergyCharts";
 
 export default function EnergyCalculator({
   missions,
@@ -72,6 +73,9 @@ export default function EnergyCalculator({
                   {humanizeEnergies(totalEnergy / 1e9)}
                 </Typography>
               </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <EnergyCharts missions={selectedMissions} />
             </Grid>
           </Grid>
         )}
