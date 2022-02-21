@@ -1,9 +1,15 @@
+import { ApolloProvider } from "@apollo/client";
 import { CssBaseline } from "@mui/material";
+import client from "./apollo";
+import Main from "./components/Main";
+
 function App() {
   return (
     <>
-      <CssBaseline />
-      <p>Hey</p>
+      <ApolloProvider client={client}>
+        <CssBaseline />
+        <Main />
+      </ApolloProvider>
     </>
   );
 }
