@@ -4,6 +4,7 @@ import { selectedMissionsContext } from "../context/selectedMissions";
 import { MissionFragment } from "../generated/generated";
 import calculateAverageEnergyPerPayload from "../utils/calculateAverageEnergyPerPayload";
 import calculateTotalEnergy from "../utils/calculateTotalEnergy";
+import humanizeEnergies from "../utils/humanizeEnergies";
 
 export default function EnergyCalculator({
   missions,
@@ -56,6 +57,20 @@ export default function EnergyCalculator({
                   {Math.floor(averageEnergyPerKg / 1e6)}
                 </Typography>{" "}
                 MegaJoules
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sx={{ mt: "1rem" }}>
+              <Typography
+                variant="h6"
+                component="p"
+                align="center"
+                title="Humorous comparisson"
+              >
+                That total is the equivalent of{" "}
+                <Typography variant="h6" component="span" color="primary">
+                  {" "}
+                  {humanizeEnergies(totalEnergy / 1e9)}
+                </Typography>
               </Typography>
             </Grid>
           </Grid>
