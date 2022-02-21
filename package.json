@@ -9,6 +9,7 @@
     "@graphql-codegen/cli": "^2.6.2",
     "@graphql-codegen/typed-document-node": "^2.2.5",
     "@graphql-codegen/typescript-operations": "^2.3.2",
+    "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
