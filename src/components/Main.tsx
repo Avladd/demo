@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { Container, Grid, Table, Typography } from "@mui/material";
 import { MissionFragment, MissionsDocument } from "../generated/generated";
+import EnergyCalculator from "./EnergyCalculator";
 import MissionsList from "./MissionsList";
 
 export default function Main() {
@@ -24,6 +25,9 @@ export default function Main() {
       <Grid container direction="column">
         <Grid item sx={{ maxHeight: "65vh", overflow: "auto" }}>
           <MissionsList missions={missions as MissionFragment[]} />
+        </Grid>
+        <Grid item sx={{ mt: "2rem" }}>
+          <EnergyCalculator missions={missions as MissionFragment[]} />
         </Grid>
       </Grid>
     </Container>
