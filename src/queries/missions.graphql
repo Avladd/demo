@@ -1,5 +1,10 @@
-query Missions {
-  launchesPast(limit: 10) {
-    mission_name
+query Missions($limit: Int!, $sort: String!, $order: String!) {
+  launchesPast(
+    find: { payload_type: "Satellite" }
+    limit: $limit
+    sort: $sort
+    order: $order
+  ) {
+    ...MissionFragment
   }
 }
