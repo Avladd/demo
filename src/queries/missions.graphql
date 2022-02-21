@@ -5,6 +5,6 @@ query Missions($limit: Int!, $sort: String!, $order: String!) {
     sort: $sort
     order: $order
   ) {
-    ...MissionFragment
+    ...Mission
   }
 }
