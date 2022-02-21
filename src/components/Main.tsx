@@ -23,7 +23,7 @@ export default function Main() {
         SpaceX launches
       </Typography>
       <Grid container direction="column">
-        <Grid item sx={{ maxHeight: "65vh", overflow: "auto" }}>
+        <Grid item sx={{ maxHeight: "60vh", overflow: "auto" }}>
           <MissionsList missions={missions as MissionFragment[]} />
         </Grid>
         <Grid item sx={{ mt: "2rem" }}>

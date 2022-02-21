@@ -17,7 +17,6 @@ const SelectedMissionsContextProvider: React.FC = ({ children }) => {
   const setSelectedMission = (missionId: string, checked: boolean) => {
     if (checked) {
       if (selectedMissions.includes(missionId)) return;
-      console.log(`setting mission ${missionId} to checked `);
       return _setSelectedMissions([missionId, ...selectedMissions]);
     }
     if (!selectedMissions.includes(missionId)) return;
