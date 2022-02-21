@@ -2,6 +2,8 @@ import { Button, Grid, Typography } from "@mui/material";
 import { useContext } from "react";
 import { selectedMissionsContext } from "../context/selectedMissions";
 import { MissionFragment } from "../generated/generated";
+import calculateAverageEnergyPerPayload from "../utils/calculateAverageEnergyPerPayload";
+import calculateTotalEnergy from "../utils/calculateTotalEnergy";
 
 export default function EnergyCalculator({
   missions,
@@ -11,6 +13,13 @@ export default function EnergyCalculator({
   const { selectedMissions: selectedMissionsIds } = useContext(
     selectedMissionsContext
   );
+
+  const selectedMissions = missions.filter(
+    (mission) => mission.id && selectedMissionsIds.includes(mission.id)
+  );
+
+  const totalEnergy = calculateTotalEnergy(selectedMissions);
+  const averageEnergyPerKg = calculateAverageEnergyPerPayload(selectedMissions);
 
   return (
     <>
@@ -34,8 +43,9 @@ export default function EnergyCalculator({
                 Total energy use:
                 <Typography variant="h6" component="span" color="primary">
                   {" "}
-                  77474746 Joules
-                </Typography>
+                  {totalEnergy / 1e9}
+                </Typography>{" "}
+                GigaJoules
               </Typography>
             </Grid>
             <Grid item xs={6}>
@@ -43,8 +53,9 @@ export default function EnergyCalculator({
                 Energy per kg of payload:
                 <Typography variant="h6" component="span" color="primary">
                   {" "}
-                  77474746 Joules
-                </Typography>
+                  {Math.floor(averageEnergyPerKg / 1e6)}
+                </Typography>{" "}
+                MegaJoules
               </Typography>
             </Grid>
           </Grid>
